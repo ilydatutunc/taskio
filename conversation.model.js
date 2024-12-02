@@ -22,7 +22,7 @@ const conversationSchema = new Schema(
    
     text: {
        [
-      type: String,
+      type : String,
       required: true, ]
     },
     

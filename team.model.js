@@ -1,34 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
-
 
 const teamSchema = new Schema(
   {
-    id:{
-      type:String,
+    id: {
+      type: String,
       required: true,
     },
     name: {
       type: String,
-      required: true,  
-      unique: true,    
+      required: true,
+      unique: true,
     },
     description: {
       type: String,
-      maxlength: 200,  
-      default: 'No description provided', 
+      maxlength: 250,
+      default: "No description provided...",
     },
     members: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',                         
+        ref: "User",
         required: true,
       },
     ],
-    
   },
-  { timestamps: true }  
+  { timestamps: true }
 );
-const Team = mongoose.model('Team', teamSchema);
+const Team = mongoose.model("Team", teamSchema);
 
 module.exports = Team;
