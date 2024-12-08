@@ -5,10 +5,14 @@ require('dotenv').config();
 
 const app = express();
 
-const taskControllers = require("./controllers/taskController");
-
 app.use(cors({ origin: '*', credentials: true }));
 app.use(express.json());
+
+
+//task
+
+const taskControllers = require("./controllers/taskController");
+
 
 app.get('/', (req, res) => {
     res.send('welcome');
@@ -25,6 +29,33 @@ app.post('/tasks', (req, res) => {
 app.put('/tasks/:taskId/:newStatus', (req, res) => {
     taskControllers.updadeTask(req, res);
 });
+
+//message
+
+const { createMessage, getMessages, deleteMessage } = require("./controllers/messageController");
+
+
+app.post('/messages', createMessage);          
+app.get('/messages', getMessages);            
+app.delete('/messages/:messageId', deleteMessage); 
+
+//profile
+
+const profileController = require("./controllers/profileController");
+
+
+app.post('/profiles', (req, res) => {
+    profileController.createProfile(req, res);
+});
+
+app.get('/profiles', (req, res) => {
+    profileController.getProfiles(req, res);
+});
+
+app.delete('/profiles/:profileId', (req, res) => {
+    profileController.deleteProfile(req, res);
+});
+
 
 const server = http.createServer(app);
 
