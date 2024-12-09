@@ -4,22 +4,19 @@ const { Schema } = mongoose;
 
 const messageSchema = new Schema(
   {
-    id: {
-      type: String,
-      required: true,
-  },
+   
     text: [
     { 
       type: String,
       required: true, 
     },
   ]
-    sender: {
+    from: {
       type : mongoose.Schema.Types.ObjectId,
       ref: "User", 
       required: true,
     },
-    receiver: {
+    to: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User", 
       required: true,
