@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-
 const userSchema = new Schema(
   {
     id: {
@@ -9,41 +8,56 @@ const userSchema = new Schema(
       required: true
     },
 
-    email: 
-    {
+    email: {
       type: String,
       required: true,
       unique: true, 
-      match: [/^\S+@\S+\.\S+$/, "Lütfen geçerli bir e-posta adresi girin"], 
+      match: [/^\S+@\S+\.\S+$/, "Lütfen geçerli bir e-posta adresi girin"]
     },
 
     password: {
       type: String,
       required: true,
-      minlength: 6,
+      minlength: 6
     },
 
     firstName: {
       type: String,
-      required: true,
+      required: true
     },
+
     lastName: {
       type: String,
-      required: true, 
+      required: true
     },
-    
+
     role: {
       type: String,
-      enum: ["user", "admin"], // Kullanıcı rollerini belirler
-      default: "user", // Varsayılan rol: kullanıcı
+      enum: ["user", "manager"], // Roller: user ve manager
+      default: "user"
     },
+
     dateOfBirth: {
       type: Date,
-      required: false, 
+      required: false
     },
-  
+
+    
+    department: { 
+      type: String,
+      required: function() { return this.role === 'manager'; }, 
+      minlength: 3
+    },
+
+    permissions: {
+      type: [String],
+      required: function() { return this.role === 'manager'; }, 
+      enum: ["create", "edit", "delete", "view"]
+    }
+
   },
-  { timestamps: true } 
+  { timestamps: true }
+);
 
 const User = mongoose.model("User", userSchema);
 
