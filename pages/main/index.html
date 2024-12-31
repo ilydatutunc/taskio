@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task.io</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showPage('account')">Hesabım</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('teams')">Takımlar</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('tasks')">Görevler</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('groups')">Gruplarım</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('add-group')">Grup Ekle</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('how-to-use')">Nasıl Kullanırım</a></li>
+                <li><a href="javascript:void(0);" onclick="showPage('about')">Hakkında</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="account" class="page">
+            <h2>Hesabım</h2>
+            <div id="profile">
+                <p>Yükleniyor...</p>
+            </div>
+        </section>
+        <section id="teams" class="page">
+            <h2>Takımlar</h2>
+            <!-- Takımlar bilgisi burada olacak -->
+        </section>
+        <section id="tasks" class="page">
+            <h2>Görevler</h2>
+            <!-- Görevler burada listelenecek -->
+        </section>
+        <section id="groups" class="page">
+            <h2>Gruplarım</h2>
+            <!-- Gruplar burada listelenecek -->
+        </section>
+        <section id="add-group" class="page">
+            <h2>Grup Ekle</h2>
+            <!-- Grup ekleme formu burada olacak -->
+        </section>
+        <section id="how-to-use" class="page">
+            <h2>Nasıl Kullanırım</h2>
+            <ol>
+                <li>Ana paneldeki <strong>+ Grup Ekle</strong> butonuna tıklayarak yeni bir grup oluşturun.</li>
+                <li>Grup adı ve açıklamasını girerek projeyi kaydedin.</li>
+                <li>Projeyi açtıktan sonra <strong>+ Görev Ekle</strong> seçeneğiyle yeni bir görev oluşturun.</li>
+                <li>Görev adı, açıklama ve sorumlu kişiyi belirleyin.</li>
+                <li>Görevlerin durumunu güncellemek için görev kartındaki seçenekleri kullanın.</li>
+                <li>Sohbet sekmesini kullanarak projelerle ilgili hızlı iletişim kurabilirsiniz.</li>
+                <li>Mesajlar kişi bazlı olarak organize edilir.</li>
+                <li>Ana ekranda projelerinizin genel durumunu ve görevlerin ilerlemesini görüntüleyebilirsiniz.</li>
+            </ol>
+        </section>
+        
+        
+        <section id="about" class="page">
+            <h2>Hakkında</h2>
+            <p>
+                Taskio, ekiplerin projelerini kolayca yönetmelerini, görevlerini organize etmelerini ve etkili bir şekilde iletişim kurmalarını sağlamak amacıyla geliştirilmiş modern bir iş yönetim platformudur. 
+            </p>
+            <p>
+                Kullanıcı dostu arayüzümüz ve güçlü özelliklerimizle, ekiplerin iş birliğini artırmayı ve iş süreçlerini daha verimli hale getirmeyi hedefliyoruz.
+            </p>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; Task.io</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

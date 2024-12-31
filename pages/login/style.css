@@ -1,18 +1,17 @@
-/* Reset */
 body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #4b0050; /* Arka plan rengi */
+    background-color: #4b0050; 
     color: white;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /*user-select: none; /* Tüm sayfa için metin seçimini engelle */
+    user-select: none; 
 }
 
-/* Container styling */
+
 .container, .login-container {
     display: flex;
     justify-content: center;
@@ -21,14 +20,14 @@ body, html {
     position: relative;
     text-align: center;
     width: 100%;
-    user-select: text; /* İçeriğin seçilmesine izin verir */
+    user-select: text; /* yazıyı seçmeyye izin */
 }
 
-/* Content styling */
+
 .content, .login-content {
     z-index: 2;
-    max-width: 600px; /* Genişlik sınırı */
-    width: 100%; /* İçeriğin genişliği ekranı aşmasın diye */
+    max-width: 600px; 
+    width: 100%; 
 }
 
 .logo h1 {
@@ -46,7 +45,7 @@ body, html {
     margin: 20px 0;
 }
 
-/* Buton Stili */
+
 .btn {
     background-color: #00b894;
     color: white;
@@ -61,7 +60,7 @@ body, html {
     background-color: #019374;
 }
 
-/* Subtext ve Footer */
+
 .subtext {
     margin-top: 15px;
     font-size: 14px;
@@ -82,34 +81,34 @@ body, html {
     text-decoration: underline;
 }
 
-/* Background styling */
+
 .background {
     position: absolute;
     top: 0;
-    left: 1; /*0 yapınca sağa atıyor*/
-    width: 100vw; /* Tam ekran genişliği */
-    height: 100vh; /* Tam ekran yüksekliği */
+    left: 1; 
+    width: 100vw; 
+    height: 100vh;
     overflow: hidden;
     z-index: 1;
     opacity: 0.2;
-    user-select: none; /* Arka planın seçilmesini engelle */
+    user-select: none; 
 }
 
 .background img {
-    width: 100vw;  /* Görselin genişliğini tam ekran yapmak için */
-    height: 100vh;  /* Görselin yüksekliğini tam ekran yapmak için */
-    object-fit: cover;  /* Görselin alanı tam olarak kaplamasını sağlar */
-    object-position: center center;  /* Görselin ortalanmasını sağlar */
+    width: 100vw;  
+    height: 100vh;  
+    object-fit: cover; 
+    object-position: center center;  
     pointer-events: none;  /* SVG üzerine tıklanmasını engelleme */
 }
 
-/* Form ve İçerik Alanı Ayrımı */
+
 form {
     z-index: 2;
     position: relative;
 }
 
-/* Input Alanları */
+
 .input-group {
     margin-bottom: 20px;
 }
@@ -125,7 +124,7 @@ input[type="text"], input[type="password"] {
     color: #333;
 }
 
-/* Şifremi Unuttum Link */
+
 .forgot-password {
     margin-top: 20px;
 }
@@ -139,7 +138,7 @@ input[type="text"], input[type="password"] {
     text-decoration: underline;
 }
 
-/* Yönlendirme Butonu Stil */
+
 button {
     cursor: pointer;
 }

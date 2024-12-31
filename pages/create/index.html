@@ -39,6 +39,78 @@
                 </div>
                 <button type="submit" class="btn">Üye Ol</button>
             </form>
+            <script>
+                document.querySelector('.signup-form').addEventListener('submit', async function(e) {
+                    e.preventDefault(); // Sayfanın yenilenmesini engelle
+                                // E-posta kontrol fonksiyonu
+                                async function checkEmailExists(email) {
+                    try {
+                        const response = await fetch('http://localhost:3000/check-email', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email })
+                        });
+
+                        const data = await response.json();
+                        
+                        return data.exists;  // Eğer e-posta varsa 'true', yoksa 'false' döndürür
+                    } catch (error) {
+                        console.error('E-posta kontrolü sırasında hata:', error);
+                        return false;  // Bir hata durumunda false döndür
+                    }
+                }
+                    // Form verilerini al
+                    const formData = {
+                        firstName: document.getElementById('first-name').value,
+                        lastName: document.getElementById('last-name').value,
+                        email: document.getElementById('email').value,
+                        dob: document.getElementById('dob').value,
+                        password: document.getElementById('password').value,
+                        confirmPassword: document.getElementById('confirm-password').value
+                    };
+                
+                    // Şifre doğrulaması
+                    if (formData.password !== formData.confirmPassword) {
+                        alert('Şifreler eşleşmiyor!');
+                        return;
+                    }
+
+                    // E-posta kontrolü
+                    const emailExists = await checkEmailExists(formData.email);
+
+                    if (emailExists) {
+                        alert('Bu e-posta adresi zaten kullanılıyor!');
+                        return;
+                    }
+
+                    delete formData.confirmPassword;
+                    
+                    // API'ye POST isteği gönder
+                    try {
+                        const response = await fetch('http://localhost:3000/profiles', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+                
+                        const data = await response.json();
+                
+                        if (response.ok) {
+                           alert('Profil başarıyla oluşturuldu, giriş sayfasına yönlendiriliyorsunuz!');
+                           setTimeout(() => {
+                               window.location.href = '../login/index.html';
+                           }, 2000);
+                        
+                        } else {
+                            alert('Profil oluşturulamadı: ' + data.message);
+                        }
+                    } catch (error) {
+                        console.error('Hata oluştu:', error);
+                        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    }
+                });
+
+            </script>
         </div>
         <div class="background">
             <img src="world.svg" alt="World Map">
