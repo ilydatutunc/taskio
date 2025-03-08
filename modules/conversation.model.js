@@ -11,7 +11,7 @@ const conversationSchema = new Schema(
     participants:{
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      //bunda kullanıcıları nasıl user1 user 2 diye yarıcam bilemedim.
+      
     },
 
     team: {
